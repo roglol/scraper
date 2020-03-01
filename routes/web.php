@@ -13,6 +13,6 @@ use App\Console\Commands\ScrapeCommand;
 
 Route::get('/', function () {
     $scraper = new ScrapeCommand;
-    $links = $scraper->handle();
-    return view('welcome',['links'=>$links]);
+    $blocks = $scraper->handle();
+    return view('welcome',['blocks'=>$blocks]);
 });

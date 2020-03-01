@@ -13,6 +13,7 @@ class ScrapeCommand extends Command
      * @var string
      */
     protected $signature = 'command:name';
+    public $blocks = [];
 
     /**
      * The console command description.
@@ -38,13 +39,42 @@ class ScrapeCommand extends Command
      */
     public function handle()
     {
-      $all_links = [];
       $client = new Client();
       $crawler = $client->request('GET', 'https://www.bbc.com/');
-      $links = $crawler->filter('.media__link')->links();
-      foreach ($links as $link) {
-        $all_links[] = $link->getURI();
+
+      $crawler->filter('.block-link')->each(function($node){
+          $arr = [];
+        if($node->filter('img')->count()){
+            $arr['image'] = str_replace('144','620',$node->filter('img')->attr('src'));
+        };
+        if($node->filter('.media__summary')->count()){
+            $arr['desc'] = $node->filter('.media__summary')->text();
+        };
+        if($node->filter('.media__link')->count()){
+            $arr['title'] = $node->filter('.media__link')->text();
+            $arr['link'] = $node->filter('.media__link')->link()->getURI();
+        };
+        
+        $this->blocks[] = $arr;
+    });
+    return array_filter($this->blocks , function($arr){
+        return isset($arr['title']);
+    });
     }
-    return $all_links;
+    public function handleTabula(){
+        $client = new Client();
+        $crawler = $client->request('GET', 'http://www.tabula.ge/ge/news');
+        $crawler->filter('.newscard')->each(function($node){
+            $arr = [];
+          if($node->filter('img')->count()){
+              $arr['image'] = $node->filter('img')->attr('src');
+          };
+          if($node->filter('.title')->count()){
+              $arr['desc'] = $node->filter('.title')->text();
+          };
+          $arr['link'] = $node->filter('a')->link()->getURI();      
+          $this->blocks[] = $arr;
+      });
+         return $this->blocks;
     }
 }

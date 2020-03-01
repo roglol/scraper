@@ -21,16 +21,16 @@
 						<!-- News -->
 						<div class="news-grid pb-0">
                             <!-- Post -->
-                            @foreach ($links as $link)
+                            @foreach ($blocks as $block)
                             <article class="news-item box">
-                                <a href='{{ $link }}'>
+                                <a href={{ isset($block['link']) ? $block['link'] : ''}}>
 							    <div class="news-item__image-wrap overlay overlay--45">
 								    <div class="news-item__date">Sep 16, 2019</div>
-								    <img class="cover lazyload" src="assets/img/image_02.jpg" alt="" />
+								    <img class="cover lazyload" src={{$block['image']}} alt=""/>
 								</div>
 								<div class="news-item__caption">
-								    <h2 class="title title--h4">Design Conferences in 2019</h2>
-									<p>Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.</p>
+								    <h2 class="title title--h4">{{ isset($block['title']) ? $block['title'] : ''}}</h2>
+									<p>{{ isset($block['desc']) ? $block['desc'] : '' }}</p>
                                 </a>
                                 </div>
 							</article>
