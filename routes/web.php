@@ -1,5 +1,4 @@
 <?php
-use App\Console\Commands\ScrapeCommand;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +11,5 @@ use App\Console\Commands\ScrapeCommand;
 */
 
 Route::get('/', function () {
-    $scraper = new ScrapeCommand;
-    $blocks = $scraper->handle();
-    return view('welcome',['blocks'=>$blocks]);
+    return view('welcome');
 });

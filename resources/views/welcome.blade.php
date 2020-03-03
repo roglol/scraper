@@ -11,14 +11,13 @@
 	<!-- Style CSS -->
 	<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" /> -->
 
-	<link href="{{ asset('bootstrap.min.css') }}" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}"/>
-    <!-- <link href="css/style.css" rel="stylesheet"> -->
-    <link href="{{ asset('flexslider.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('owl.carousel.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('animate.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('owl.theme.css') }}" type="text/css" rel="stylesheet">
-    <link href="{{ asset('font-awesome.min.css') }}" type="text/css" rel="stylesheet">
+	<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}"/>
+    <link href="{{ asset('css/flexslider.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/owl.carousel.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/animate.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/owl.theme.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" type="text/css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>          
@@ -190,423 +189,38 @@
 	        <div class="row">
 	            <div class="col-sm-9 col-md-9 ">
 	            	<div class="content-col">
-		            	<!--breaking slide-->
-		                <div class="breaking-news-slide clearfix" style="display:none">
-		                    <h5 class="bg1">Breaking News</h5>
-		                    <div class="newsslider">
-		                        <ul class="slides">
-		                            <li> <a href="#">Martha Stewart had a really good pattern for a handbag….</a> </li>
-		                            <li> <a href="#">The World’s Youngest Billionaire is Just 24...</a> </li>
-		                            <li> <a href="#">Stewart had a really good pattern for a handbag Just 24….</a> </li>
-		                        </ul>
-		                    </div>
-		                </div>
-		                <!--breaking slide end-->
-
-		                <!--flex slider-->
-		                <div class="flex-slider2" style="display:none">
-		                    <div class="flexslider">
-		                        <ul class="slides">
-		                            <li>
-		                                <a href="#" class="news-slider"> 
-		                                	<img src="img/slider/slide-1.jpg" alt="" class="img-responsive">
-		                                    <div class="news-overlay"> 
-		                                    	<span class="tag bg3">Media</span>
-		                                        <h3>Nuclear Fusion Closer to Becoming a Reality</h3>
-		                                        <span class="date">October 2, 2017</span>
-		                                        <span class="view"><i class="fa fa-eye"></i> 100</span>
-		                                        <span class="comments"><i class="fa fa-comment"></i> 15</span> 
-	                                    	</div>
-		                                </a>
-		                            </li>
-		                            <li>
-		                                <a href="#" class="news-slider"> 
-		                                	<img src="img/slider/slide-2.jpg" alt="" class="img-responsive">
-		                                    <div class="news-overlay"> 
-		                                    	<span class="tag bg3">Media</span>
-		                                        <h3>Nuclear Fusion Closer to Becoming a Reality</h3>
-		                                        <span class="date">October 2, 2017</span>
-		                                        <span class="view"><i class="fa fa-eye"></i> 100</span>
-		                                        <span class="comments"><i class="fa fa-comment"></i> 15</span> 
-	                                    	</div>
-		                                </a>
-		                            </li>
-		                        </ul>
-		                    </div>
-		                </div>
-		                <!--flex slider end-->
-
-		                <!--latest post-->
-		                <div class="news-by_category" style="display:none">
-		                    <h3 class="main-title">Latest News</h3>
-		                    <div class="row">
-		                        <div class="col-sm-6 wow animated fadeInUp" data-wow-delay="0.2s">
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/l1.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="topic"> 
-		                                	<a href="#" class="tag bg4">Technology</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <div class="col-sm-6 wow animated fadeInUp" data-wow-delay="0.4s">
-		                            <div class="media">
-		                                <div class="media-left">
-		                                    <a href="#"> <img class="media-object" src="img/post/l2.jpg" width="150" alt="..."> </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi </a></h4>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                            <!--media-->
-		                            <div class="media">
-		                                <div class="media-left">
-		                                    <a href="#"> <img class="media-object" src="img/post/l3.jpg" width="150" alt="..."> </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi</a></h4>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                            <!--media-->
-		                            <div class="media">
-		                                <div class="media-left">
-		                                    <a href="#"> <img class="media-object" src="img/post/l4.jpg" width="150" alt="..."> </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi</a></h4>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                            <!--media-->
-		                            <div class="media">
-		                                <div class="media-left">
-		                                    <a href="#"> <img class="media-object" src="img/post/l5.jpg" width="150" alt="..."> </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi</a></h4>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                            <!--media-->
-		                        </div>
-		                    </div>
-		                </div>
-		                <!--latest post end-->
-
-		                <!--popular post-->
-		                <div style="height: 40px;display:none"></div>
-		                <div class="news-columns" style="display:none">
-		                    <h3 class="main-title">Popular Post</h3>
-		                    <div class="row">
-		                        <div class="col-sm-12 wow animated fadeInUp" data-wow-delay="0.2s">
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/p1.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="topic"> 
-		                                	<a href="#" class="tag bg1">Travel</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!--column post col-4-->
-		                        <div class="col-sm-6 wow animated fadeInUp" data-wow-delay="0.4s">
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/p2.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="topic"> 
-		                                	<a href="#" class="tag bg1">Science</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!--column post col-4-->
-		                        <div class="col-sm-6 wow animated fadeInUp" data-wow-delay="0.6s">
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/p3.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="topic"> 
-		                                	<a href="#" class="tag bg1">Health</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                   <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!--column post col-4-->
-		                    </div>
-		                    <!--columns post row-->
-		                </div>
-		                <!--popular-post end-->
-
-		                <!--world news-->
-		                <div style="height: 40px;display:none"></div>
-		                <div class="news-carousel wow animated fadeInUp" data-wow-delay="0.2s" style="display:none">
-		                    <h3 class="main-title">World</h3>
-		                    <div id="post-carousel" class="owl-carousel">
-		                        <div>
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/w1.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="topic"> <a href="#" class="tag bg2">Politics</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                        <div>
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/w2.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="topic"> <a href="#" class="tag bg2">Politics</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                   <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                        <div>
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/w3.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="topic"> <a href="#" class="tag bg2">Technology</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                        <div>
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/w4.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="topic"> 
-		                                	<a href="#" class="tag bg2">Education</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                        <div>
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/w5.jpg" alt="" class="img-responsive"> </a>
-		                               <div class="topic"> 
-		                                	<a href="#" class="tag bg2">Fashion</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                    </div>
-		                    <!--post slider-->
-		                </div>
-		                <!--world news end-->
-
 		                <!--Advertisement-->
-		                <div style="height: 40px;display:none"></div>
 		                <div class="advertisement text-center clearfix">
 		                	<a href="https://www.templatesell.com/item/quality-construction-pro-wordpress-themes/" target="blank">
 								<img class="img-responsive" src="img/ad/add-1.jpg" alt="ad">
 							</a>
 		                </div>
 		                <!--advertisement end-->
-
-		                <!--sports news-->
-		                <div style="height: 40px;display:none"></div>
-		                <div class="news-by_category" style="display:none">
-		                    <h3 class="main-title">Sports News</h3>
-		                    <div class="row">
-		                        <div class="col-sm-6 wow animated fadeInUp" data-wow-delay="0.2s">
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/s1.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="topic"> 
-		                                	<a href="#" class="tag bg4">Sport</a>
-		                                    <h4><a href="#">Nuclear Fusion Closer to Becoming a Reality</a></h4>
-		                                    <p> Maecenas mauris elementum, est morbi interdum cursus at elite imperdiet libero. Proin odios dapibus integer an nulla augue pharetra cursus. </p>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                        </div>
-		                        <div class="col-sm-6 wow animated fadeInUp" data-wow-delay="0.4s">
-		                            <div class="media">
-		                                <div class="media-left">
-		                                    <a href="#"> <img class="media-object" src="img/post/s2.jpg" width="150" alt="..."> </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi at elite</a></h4>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                            <!--media-->
-		                            <div class="media">
-		                                <div class="media-left">
-		                                    <a href="#"> <img class="media-object" src="img/post/s3.jpg" width="150" alt="..."> </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi at elite</a></h4>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                            <!--media-->
-		                            <div class="media">
-		                                <div class="media-left">
-		                                    <a href="#"> <img class="media-object" src="img/post/s5.jpg" width="150" alt="..."> </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi at elite </a></h4>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                            <!--media-->
-		                            <div class="media">
-		                                <div class="media-left">
-		                                    <a href="#"> <img class="media-object" src="img/post/s4.jpg" width="150" alt="..."> </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi at elite </a></h4>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-		                            </div>
-		                            <!--media-->
-		                        </div>
-		                    </div>
-		                </div>
-		                <!--sport news end-->
-
 		                <!--short news -->
-		                <div style="height: 40px;display:none" ></div>
 		                <div class="short-post">
-		                    <h3 class="main-title">Most Read</h3>
+		                    <h3 class="main-title">BBC</h3>
 		                    <div class="row">
-		                        <div class="row" style="margin:0px;" data-wow-delay="0.2s">
-								   @foreach ($blocks as $block)
-		                            <div class="media col-md-6" style="width:49%;">
-		                                <div class="media-left">
-		                                    <a href={{ isset($block['link']) ? $block['link'] : ''}}> 
-											<img class="media-object" src={{$block['image']}} width="150" alt="..."/> 
-										    </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <h4 class="media-heading"><a href={{ isset($block['link']) ? $block['link'] : ''}}>
-												{{ isset($block['title']) ? $block['title'] : ''}}
-											</a></h4>
-		                                    <ul class="post-tools">
-											  <li> by <a href="#"><strong> Canyon</strong> </a></li>
-											  <li>  5 Hours Ago </li>
-											  <li><a href="#"> <i class="ti-thought"></i> 57</a> </li>
-											</ul>
-		                                </div>
-									</div>
-									@endforeach
-								</div>
+		                        <div class="row bbcContainer" style="margin:0px;" data-wow-delay="0.2s"></div>
 
-	<nav aria-label="Page navigation example" class='d-flex justify-content-center' data-length={{count($blocks)}}>
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item page-link-button"><a class="page-link" href="#">1</a></li>
-    <li class="page-item page-link-button"><a class="page-link" href="#">2</a></li>
-	<li class="page-item page-link-button"><a class="page-link" href="#">3</a></li>
-	<li class="page-item page-link-button"><a class="page-link" href="#">4</a></li>
-    <li class="page-item page-link-button"><a class="page-link" href="#">5</a></li>
-	<li class="page-item page-link-button"><a class="page-link" href="#">6</a></li>
-	<li class="page-item page-link-button"><a class="page-link" href="#">7</a></li>
-    <li class="page-item page-link-button"><a class="page-link" href="#">8</a></li>
-    <li class="page-item page-link-button"><a class="page-link" href="#">9</a></li>
-    <li class="page-item">
-      <a class="page-link" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
+	<nav aria-label="Page navigation example" class='d-flex justify-content-center'>
+		<ul class="bbcPagination pagination">
+		</ul>
 </nav>
+
 		                    </div>
-		                </div>
+						</div>
+<div class="short-post">
+<h3 class="main-title">Tabula</h3>
+<div class="row">
+<div class="row tabulaContainer" style="margin:0px;" data-wow-delay="0.2s"></div>
+
+<nav aria-label="Page navigation example" class='d-flex justify-content-center'>
+<ul class="tabulaPagination pagination">
+	</ul>
+</nav>
+
+</div>
+</div>
 		                <!--short news end -->
 		            </div>
 	        	</div>
@@ -819,87 +433,6 @@
 		                </div>
 		            </div>
 	            </div>
-	            <div style="height: 40px;display:none"></div>
-	            <div class="col-sm-12 col-md-12">
-	            	<div class="content-col">
-		                <div class="news-carousel post-video wow animated fadeInUp" data-wow-delay="0.2s">
-		                    <h3 class="main-title">Watch It</h3>
-		                    <div id="post-video" class="owl-carousel">
-		                        <div>
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/v1.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="news-overlay"> 
-										   <a href="#">
-											  <span class="tag bg3">Policical</span>
-											  <h3>Nuclear Fusion Closer</h3>
-											  <span class="date">October 2, 2017</span>
-											  <span class="view"><i class="fa fa-eye"></i> 100</span>
-										  	</a>
-										</div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                        <div>
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/v2.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="news-overlay"> 
-		                                	<a href="#">
-											  <span class="tag bg3">Sports</span>
-											  <h3>Nuclear Fusion Closer</h3>
-											  <span class="date">October 2, 2017</span>
-											  <span class="view"><i class="fa fa-eye"></i> 100</span>
-										  	</a>
-										</div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                        <div>
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/v3.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="news-overlay"> 
-										  	<a href="#">
-											  <span class="tag bg3">Travel</span>
-											  <h3>Nuclear Fusion Closer</h3>
-											  <span class="date">October 2, 2017</span>
-											  <span class="view"><i class="fa fa-eye"></i> 100</span>
-										  	</a>
-										</div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                        <div>
-		                            <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/v4.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="news-overlay"> 
-										  	<a href="#">
-											  <span class="tag bg3">Health</span>
-											  <h3>Nuclear Fusion Closer</h3>
-											  <span class="date">October 2, 2017</span>
-											  <span class="view"><i class="fa fa-eye"></i> 100</span>
-										  	</a>
-										</div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                        <div>
-		                           <div class="column-post">
-		                                <a href="#" class="img-thumbnail"> <img src="img/post/v5.jpg" alt="" class="img-responsive"> </a>
-		                                <div class="news-overlay"> 
-										 	<a href="#">
-											  <span class="tag bg3">Food</span>
-											  <h3>Nuclear Fusion Closer</h3>
-											  <span class="date">October 2, 2017</span>
-											  <span class="view"><i class="fa fa-eye"></i> 100</span>
-										  	</a>
-									  	</div>
-		                            </div>
-		                        </div>
-		                        <!--item-->
-		                    </div>
-		                    <!--post slider-->
-		                </div>
-		            </div>
-	            </div>
 	        </div>
 	    </div>
 	</section>
@@ -982,14 +515,14 @@
     </div>
     <!--footer-->
 
-    <!-- <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.flexslider-min.js"></script>
-    <script src="js/owl.carousel.js"></script>
-    <script src="js/custom.js"></script>
-	<script src="js/wow.min.js"></script> -->
-	<script src="{{ asset('custom.js') }}"></script>
-    
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
+	<script src="{{ asset('js/owl.carousel.js') }}"></script>
+	<script src= "{{ asset('js/wow.min.js') }}"></script>
+	<script src="{{ asset('js/custom.js') }}"></script>
+	
+   
 </body>
 
 

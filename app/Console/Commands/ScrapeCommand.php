@@ -57,7 +57,7 @@ class ScrapeCommand extends Command
         
         $this->blocks[] = $arr;
     });
-    return array_slice($this->blocks,0,6);
+    return $this->blocks;
     }
     public function handleTabula(){
         $client = new Client();
@@ -73,6 +73,6 @@ class ScrapeCommand extends Command
           $arr['link'] = $node->filter('a')->link()->getURI();      
           $this->blocks[] = $arr;
       });
-         return array_slice($this->blocks,0,6);
+         return $this->blocks;
     }
 }
