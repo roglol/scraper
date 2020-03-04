@@ -13,7 +13,7 @@ class WebsiteController extends Controller
      */
     public function index()
     {
-
+      return 'egaaa';
     }
     public function bbc(Request $request)
     {

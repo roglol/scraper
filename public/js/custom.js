@@ -119,39 +119,37 @@ class News {
         var data = new FormData();
         data.append('page', `${pageNumber}`);
         data.append('records', `${recordsPerPage}`);
-            var xhttp = new XMLHttpRequest();
-            var that = this;
-            xhttp.onreadystatechange =function(){
-                if (this.readyState == 4 && this.status == 200) {
-                    JSON.parse(this.response).records.forEach((el,index) =>{
-                        that.appendNews(index,el['link'],el['image'],el['title'])
-                  })
+        const that = this;
+        $.post( that.api,{page:pageNumber,records:recordsPerPage}, function( data ) {
+            data.records.forEach((el,index) =>{
+                that.appendNews(index,el['link'],el['image'],el['title'])
                 if(!that.pagInit){
-                that.paginationAction(JSON.parse(this.response).count)
-                that.previous = that.paginationContainer.querySelector(`[aria-label="Previous"]`);
-                that.next = that.paginationContainer.querySelector(`[aria-label="Next"]`);
-                that.pageItems = that.paginationContainer.querySelectorAll(`.page-link-button`);
-                that.pageItemAction()
-                that.prevAction()
-                that.nextAction()
-            }
-            that.pagInit = true;
+                    that.paginationAction(data.count)
+                    that.previous = that.paginationContainer.querySelector(`[aria-label="Previous"]`);
+                    that.next = that.paginationContainer.querySelector(`[aria-label="Next"]`);
+                    that.pageItems = that.paginationContainer.querySelectorAll(`.page-link-button`);
+                    that.pageItemAction()
+                    that.prevAction()
+                    that.nextAction()
                 }
-              };
-              xhttp.open("POST", that.api, true);
-              xhttp.send(data);
-        }
-  }
+                that.pagInit = true;
+  });
+  });
+} 
+}
+
 
   const bbcNews = new News(
       "http://127.0.0.1:8000/api/website/bbc",
       document.querySelector('.bbcContainer'),
       document.querySelector('.bbcPagination')
       )
-  bbcNews.init()
+bbcNews.init()
   const tabulaNews = new News(
     "http://127.0.0.1:8000/api/website/tabula",
     document.querySelector('.tabulaContainer'),
     document.querySelector('.tabulaPagination')
     )
 tabulaNews.init()
+
+

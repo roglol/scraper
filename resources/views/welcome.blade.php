@@ -519,7 +519,7 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.flexslider-min.js') }}"></script>
 	<script src="{{ asset('js/owl.carousel.js') }}"></script>
-	<script src= "{{ asset('js/wow.min.js') }}"></script>
+	<script src="{{ asset('js/wow.min.js') }}"></script>
 	<script src="{{ asset('js/custom.js') }}"></script>
 	
    
