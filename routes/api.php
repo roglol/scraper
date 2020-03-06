@@ -20,7 +20,10 @@ Route::resource('website', 'WebsiteController');
 Route::post('website/bbc', 'WebsiteController@bbc');
 Route::post('website/tabula', 'WebsiteController@tabula');
 
-Route::get('blogs', 'BlogController@index')->middleware('auth');
+Route::middleware('auth:api')->group(function() {
+    Route::get('blogss', 'BlogController@index');
+});
+// Route::get('blogs', 'BlogController@index');
 Route::get('blogs/{blog}', 'BlogController@show');
 Route::post('blogs', 'BlogController@store');
 Route::put('blogs/{blog}', 'BlogController@update');
