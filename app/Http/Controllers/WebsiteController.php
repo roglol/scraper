@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Console\Commands\ScrapeCommand;
+use App\Console\Commands\TabulaScraper;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -30,16 +31,9 @@ class WebsiteController extends Controller
     }
     public function tabula(Request $request)
     {
-        $page = $request->get('page');
-        $records = $request->get('records');
-        $scraper = new ScrapeCommand;
-        $recordebi = $scraper->handleTabula();
-        $blocks = array_slice($recordebi,($page-1) * $records, $records);
-        $res = [
-            'count' => round(count($recordebi)/$records),
-            'records' => $blocks
-        ];
-        return response($res,200);
+        $scraper = new TabulaScraper;
+        $recordebi = $scraper->handleEconomy();
+        return response($recordebi,200);
     }
 
     /**

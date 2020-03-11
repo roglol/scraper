@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\CategoryController;
 Use App\Blog;
 
 /*
@@ -17,13 +18,21 @@ Use App\Blog;
 
 
 Route::resource('website', 'WebsiteController');
+
+Route::get('category/{category}', 'CategoryController@show');
+Route::post('category/update', 'CategoryController@update');
+Route::post('category/delete', 'CategoryController@delete');
+Route::get('category', 'CategoryController@index');
+Route::post('category', 'CategoryController@store');
+
+
 Route::post('website/bbc', 'WebsiteController@bbc');
 Route::post('website/tabula', 'WebsiteController@tabula');
 
-Route::middleware('auth:api')->group(function() {
-    Route::get('blogss', 'BlogController@index');
+Route::middleware('auth.jwt')->group(function() {
+    Route::get('blogs', 'BlogController@index');
 });
-// Route::get('blogs', 'BlogController@index');
+
 Route::get('blogs/{blog}', 'BlogController@show');
 Route::post('blogs', 'BlogController@store');
 Route::put('blogs/{blog}', 'BlogController@update');

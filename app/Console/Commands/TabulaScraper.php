@@ -5,7 +5,7 @@ use Goutte\Client;
 use Symfony\Component\HttpClient\HttpClient;
 use Illuminate\Console\Command;
 
-class ScrapeCommand extends Command
+class TabulaScraper extends Command
 {
     /**
      * The name and signature of the console command.
@@ -13,7 +13,6 @@ class ScrapeCommand extends Command
      * @var string
      */
     protected $signature = 'command:name';
-    public $blocks = [];
 
     /**
      * The console command description.
@@ -37,31 +36,10 @@ class ScrapeCommand extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handleEconomy()
     {
-      $client = new Client();
-      $crawler = $client->request('GET', 'https://www.bbc.com/news');
-
-      $crawler->filter('.gel-layout__item')->each(function($node){
-          $arr = [];
-        if($node->filter('img')->count()){
-            $arr['image'] = str_replace('144','620',$node->filter('img')->attr('src'));
-        };
-        if($node->filter('.gs-c-promo-summary')->count()){
-            $arr['desc'] = $node->filter('.gs-c-promo-summary')->text();
-        };
-        if($node->filter('.gs-c-promo-heading__title')->count()){
-            $arr['title'] = $node->filter('.gs-c-promo-heading__title')->text();
-            $arr['link'] = $node->filter('.gs-c-promo-heading')->link()->getURI();
-        };
-        
-        $this->blocks[] = $arr;
-    });
-    return $this->blocks;
-    }
-    public function handleTabula(){
         $client = new Client();
-        $crawler = $client->request('GET', 'http://www.tabula.ge/ge/news');
+        $crawler = $client->request('GET', 'http://www.tabula.ge/ge/economy');
         $crawler->filter('.newscard')->each(function($node){
             $arr = [];
           if($node->filter('img')->count()){
