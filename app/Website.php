@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Category;
 
 class Website extends Model
 {
@@ -10,6 +11,6 @@ class Website extends Model
 
     public function categories()
     {
-        return $this->belongsToMany('App\Category', 'categories_websites');
+        return $this->belongsToMany(Category::class, 'categories_websites', 'website_id', 'category_id')->withTimeStamps();
     }
 }

@@ -14,7 +14,12 @@ class CategoryController extends Controller
  
     public function show(Category $category)
     {
+
         return $category;
+    }
+    public function websites(Category $category)
+    {
+        return response()->json($category->websites,200);
     }
 
     public function store(Request $request)

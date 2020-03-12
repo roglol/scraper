@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Website;
 
 class Category extends Model
 {
@@ -10,6 +11,6 @@ class Category extends Model
 
     public function websites()
     {
-        return $this->belongsToMany('App\Website', 'categories_websites');
+        return $this->belongsToMany(Website::class, 'categories_websites', 'category_id','website_id');
     }
 }

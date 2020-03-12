@@ -17,15 +17,15 @@ Use App\Blog;
 */
 
 
-
-
 Route::get('category/{category}', 'CategoryController@show');
+Route::get('category/websites/{category}', 'CategoryController@websites');
 Route::post('category/update', 'CategoryController@update');
 Route::post('category/delete', 'CategoryController@delete');
 Route::get('category', 'CategoryController@index');
 Route::post('category', 'CategoryController@store');
 
 Route::get('website/{website}', 'WebsiteController@show');
+Route::get('website/categories/{website}', 'WebsiteController@categories');
 Route::post('website/update', 'WebsiteController@update');
 Route::post('website/delete', 'WebsiteController@delete');
 Route::get('website', 'WebsiteController@index');
