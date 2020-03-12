@@ -1,104 +1,47 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Console\Commands\ScrapeCommand;
-use App\Console\Commands\TabulaScraper;
+
 use Illuminate\Http\Request;
+use App\Website;
 
 class WebsiteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-      return 'egaaa';
+        return Website::all();
     }
-    public function bbc(Request $request)
+ 
+    public function show(Website $website)
     {
-        $page = $request->get('page');
-        $records = $request->get('records');
-        $scraper = new ScrapeCommand;
-        $recordebi = $scraper->handle();
-        $blocks = array_slice($recordebi,($page-1) * $records, $records);
-        $res = [
-            'count' => round(count($recordebi)/$records),
-            'records' => $blocks
-        ];
-        return response($res,200);
-    }
-    public function tabula(Request $request)
-    {
-        $scraper = new TabulaScraper;
-        $recordebi = $scraper->handleEconomy();
-        return response($recordebi,200);
+        return $website;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $website = User::create([
+            'name' => $request->name,
+            'domain' => $request->domain,
+        ]);
+        $category_id = $request->category_id;
+        $website->categories()->attach($category_id);
+        return response()->json($website,201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->id;
+        $website = website::find($id);
+        $website->update($request->all());
+
+        return response()->json($website,200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function delete(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+        $id = $request->id;
+        $website = website::find($id);
+        $website->delete();
+        return response()->json(null,204);
+    } 
 }
