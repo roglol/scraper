@@ -20,6 +20,20 @@ class TabulaScraper extends Command
      * @var string
      */
     protected $description = 'Command description';
+    protected $months = [
+     "იანვარი" => 0,
+     "თებერვალი" => 1,
+     "მარტი" => 2,
+     "აპრილი" => 3,
+     "მაისი" => 4,
+     "ივნისი" => 5,
+     "ივლისი" => 6,
+     "აგვისტო" => 7,
+     "სექტემბერი" => 8,
+     "ოქტომბერი" => 9,
+     "ნოემბერი" => 10,
+     "დეკემბერი" => 11
+    ];
 
     /**
      * Create a new command instance.
@@ -29,6 +43,7 @@ class TabulaScraper extends Command
     public function __construct()
     {
         parent::__construct();
+        $this->client =new Client(); 
     }
 
     /**
@@ -38,8 +53,7 @@ class TabulaScraper extends Command
      */
     public function handleEconomy()
     {
-        $client = new Client();
-        $crawler = $client->request('GET', 'http://www.tabula.ge/ge/economy');
+        $crawler = $this->client->request('GET', 'http://www.tabula.ge/ge/economy');
         $crawler->filter('.newscard')->each(function($node){
             $arr = [];
           if($node->filter('img')->count()){
@@ -48,7 +62,11 @@ class TabulaScraper extends Command
           if($node->filter('.title')->count()){
               $arr['title'] = $node->filter('.title')->text();
           };
-          $arr['link'] = $node->filter('a')->link()->getURI();      
+          $link = $node->filter('a')->link()->getURI(); 
+          $bodyCrawler = $this->client->request('GET', $link);
+          $arr['body'] = $bodyCrawler->filter('.content-body-column')->html();
+          $arr['link'] = $link;     
+        //   $arr['date'] = date("h-i-sa");
           $this->blocks[] = $arr;
       });
          return $this->blocks;

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ArticleController;
 Use App\Blog;
 
 /*
@@ -31,7 +32,7 @@ Route::post('website/delete', 'WebsiteController@delete');
 Route::get('website', 'WebsiteController@index');
 Route::post('website', 'WebsiteController@store');
 
-
+Route::get('article', 'ArticleController@index');
 
 // Route::middleware('auth.jwt')->group(function() {
 //     Route::get('blogs', 'BlogController@index');
