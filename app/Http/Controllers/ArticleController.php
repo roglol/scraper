@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Console\Commands\TabulaScraper;
 use Illuminate\Http\Request;
+use Validator;
 use App\Article;
+use App\Website;
 
 
 class ArticleController extends Controller
@@ -15,12 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $scraper = new TabulaScraper;
-        $tabula = $scraper->handleEconomy();
-        foreach ($tabula as $article) {
-          Article::create($article);
-        }
-        return response()->json($tabula,200);
+
     }
 
     /**
@@ -41,7 +38,21 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $scraper = new TabulaScraper;
+        $tabula = $scraper->handleEconomy();
+        $id = $request->id;
+        $website = Website::find($id);
+        $articles = [];
+        foreach ($tabula as $article) {
+            $validator = Validator::make($article, [
+                'date' => 'required|unique:articles'
+            ]);   
+            if (!$validator->fails()) {
+                $articles[] = new Article($article);
+            }
+            $website->articles()->saveMany($articles);
+        }  
+        return response()->json($tabula,200);
     }
 
     /**

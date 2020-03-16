@@ -66,7 +66,13 @@ class TabulaScraper extends Command
           $bodyCrawler = $this->client->request('GET', $link);
           $arr['body'] = $bodyCrawler->filter('.content-body-column')->html();
           $arr['link'] = $link;     
-        //   $arr['date'] = date("h-i-sa");
+          $date = explode(" ",$node->filter('.meta time')->text()); 
+          $year = substr($date[2],0,-1);
+          $month = $this->months[$date[1]];
+          $day = $date[0];
+          $hour = $date[3];
+          $dateString=date_create("$year-$month-$day $hour");
+          $arr['date'] = date_format($dateString, "Y/m/d H:i");
           $this->blocks[] = $arr;
       });
          return $this->blocks;

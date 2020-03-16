@@ -32,7 +32,7 @@ Route::post('website/delete', 'WebsiteController@delete');
 Route::get('website', 'WebsiteController@index');
 Route::post('website', 'WebsiteController@store');
 
-Route::get('article', 'ArticleController@index');
+Route::post('article', 'ArticleController@store');
 
 // Route::middleware('auth.jwt')->group(function() {
 //     Route::get('blogs', 'BlogController@index');

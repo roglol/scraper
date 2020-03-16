@@ -13,4 +13,5 @@ class Category extends Model
     {
         return $this->belongsToMany(Website::class, 'categories_websites', 'category_id','website_id');
     }
+
 }
