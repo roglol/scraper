@@ -17,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-
+        return Article::all();
     }
 
     /**
@@ -27,7 +27,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

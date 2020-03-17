@@ -33,7 +33,7 @@ Route::get('website', 'WebsiteController@index');
 Route::post('website', 'WebsiteController@store');
 
 Route::post('article', 'ArticleController@store');
-
+Route::get('article', 'ArticleController@index');
 // Route::middleware('auth.jwt')->group(function() {
 //     Route::get('blogs', 'BlogController@index');
 // });
