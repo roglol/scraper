@@ -12,7 +12,7 @@ class Website extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'categories_websites', 'website_id', 'category_id')->withTimeStamps();
+        return $this->belongsToMany(Category::class);
     }
     public function articles()
     {

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateArticlesTable extends Migration
+class CreateCategoriesWebsitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class UpdateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function (Blueprint $table) {
-            $table->integer('website_id');
+        Schema::create('category_website', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('category_id')->nullable();
+            $table->integer('website_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,6 +28,6 @@ class UpdateArticlesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('categories_websites');
     }
 }

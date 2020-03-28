@@ -1,4 +1,4 @@
-@include('header')
+@include('header.header')
 <body>
 
 	<!--top bar-->
@@ -8,18 +8,8 @@
 	            <div class="col-sm-6">
 	                <ul class="list-inline top-nav">
 	                    <li><a href="#">News</a></li>
-	                    <li><a href="#">Sports</a></li>
-	                    <li><a href="#">Weather</a></li>
-	                    <li><a href="#">Sports</a></li>
+	                    <li><a href="#">Economy</a></li>
 	                    <li><a href="#">Politics</a></li>
-	                </ul>
-	            </div>
-	            <div class="col-sm-6 text-right">
-	                <ul class="list-inline top-social">
-	                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-	                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-	                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-	                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 	                </ul>
 	            </div>
 	        </div>
@@ -32,7 +22,7 @@
 	    <div class="container">
 	        <div class="row">
 	            <div class="col-sm-3 col-md-3">
-	                <a href="index-2.html" class="logo"><img src="img/logo.png" alt="logo"></a>
+	                <a href="/" class="logo"><img src="img/logo.png" alt="logo"></a>
 	            </div>
 	            <div class="col-sm-9 col-md-9 text-right">
 	                <a href="https://www.templatesell.com/item/quality-construction-pro-wordpress-themes/" target="blank">
@@ -59,21 +49,16 @@
 	            </div>
 	            <div id="navbar" class="navbar-collapse collapse">
 	                <ul class="nav navbar-nav">
-	                	<li class="active"><a href="index-2.html"><i class="fa fa-home"></i></a></li>
-	                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Pages <span class="caret"></span></a>
+	                	<li class="active"><a href="/"><i class="fa fa-home"></i></a></li>
+	                    <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Websites <span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
-	                            <li><a href="archives.html">Archives</a></li>
-	                            <li><a href="category.html">Category</a></li>
-	                            <li><a href="single-post.html">Single Post</a></li>
-	                            <li><a href="author-detail.html">Author Ddetail</a></li>
-	                            <li><a href="contact.html">Contact</a></li>
+	                            <li><a href="/">Tabula</a></li>
+	                            <li><a href="/">MarketWatch</a></li>
 	                        </ul>
 	                    </li>
-	                    <li><a href="#">Sports</a></li>
-	                    <li><a href="#">Entertainment</a></li>
-	                    <li><a href="#">Culture</a></li>
-	                    <li><a href="#">Traveling</a></li>
-	                    <li><a href="contact.html">Contact us</a></li>
+	                    <li><a href="/">News</a></li>
+	                    <li><a href="/">Economy</a></li>
+	                    <li><a href="/">Politics</a></li>
 	                    <li class="dropdown  yamm-fw"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Mega menu <span class="caret"></span></a>
 	                        <ul class="dropdown-menu">
 	                            <li>
@@ -164,71 +149,35 @@
 	            	<div class="content-col">
 		                <!--short news -->
 		                <div class="short-post">
-		                    <h3 class="main-title">BBC</h3>
+		                    <h3 class="main-title">General</h3>
 		                    <div class="row">
-		                        <div class="row bbcContainer" style="margin:0px;" data-wow-delay="0.2s"></div>
-
-	<nav aria-label="Page navigation example" class='d-flex justify-content-center'>
-		<ul class="bbcPagination pagination">
-		</ul>
-</nav>
-
-		                    </div>
+								@foreach($articles as $article)
+								<div class="col-sm-6 wow animated fadeInUp" data-wow-delay="0.2s">
+									
+									<div class="media">
+		                                <div class="media-left">
+		                                    <a href={{$article->link}}> <img class="media-object" src={{$article->img}} width="150" height="100" alt="..."> </a>
+		                                </div>
+		                                <div class="media-body">
+		                                    <h4 class="media-heading" style="max-height:97px;overflow:hidden;"><a href={{$article->link}}>{{$article->title}}</a></h4>
+		                                </div>
+									</div>
+								
+								</div>
+								@endforeach
+							</div>
+							<div class="row">
+								<div class="col-12 text-center">
+								   {{$articles->appends(request()->except('page'))->links()}}
+								</div>
+							</div>
 						</div>
-<div class="short-post">
-<h3 class="main-title">Tabula</h3>
-<div class="row">
-<div class="row tabulaContainer" style="margin:0px;" data-wow-delay="0.2s"></div>
-
-<nav aria-label="Page navigation example" class='d-flex justify-content-center'>
-<ul class="tabulaPagination pagination">
-	</ul>
-</nav>
-
-</div>
-</div>
-		                <!--short news end -->
+		 <!--short news end -->
 		            </div>
 	        	</div>
 		            
 	            <div class="col-sm-3 col-md-3">
 	            	<div class="sidebar-col">
-		                <div class="sidebar-box wow animated fadeInUp" data-wow-delay="0.4s">
-		                    <h3>Recent Posts</h3>
-		                    <div class="media">
-		                        <div class="media-left">
-		                            <a href="#"> <img class="media-object" src="img/post/p2.jpg" width="100" alt="..."> </a>
-		                        </div>
-		                        <div class="media-body"> 
-		                        	<a href="#" class="tag bg5">Science</a>
-		                            <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi</a></h4> 
-		                            <span class="date">24 May, 2017</span> 
-		                        </div>
-		                    </div>
-		                    <!--media-->
-		                    <div class="media">
-		                        <div class="media-left">
-		                            <a href="#"> <img class="media-object" src="img/post/s4.jpg" width="100" alt="..."> </a>
-		                        </div>
-		                        <div class="media-body"> 
-		                        	<a href="#" class="tag bg5">Sports</a>
-		                            <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi</a></h4> 
-		                            <span class="date">24 May, 2017</span> 
-		                        </div>
-		                    </div>
-		                    <!--media-->
-		                    <div class="media">
-		                        <div class="media-left">
-		                            <a href="#"> <img class="media-object" src="img/post/w1.jpg" width="100" alt="..."> </a>
-		                        </div>
-		                        <div class="media-body"> 
-		                        	<a href="#" class="tag bg5">Political</a>
-		                            <h4 class="media-heading"><a href="#">Maecenas mauris elementum, est morbi</a></h4> 
-		                            <span class="date">24 May, 2017</span> 
-		                        </div>
-		                    </div>
-		                    <!--media-->
-		                </div>
 		                <!--sidebar box-->
 		                <div class="sidebar-box wow animated fadeInUp" data-wow-delay="0.6s">
 		                    <h3>Top 5 news</h3>
@@ -355,4 +304,4 @@
     	</div>
     </div> 
 </body>
-@include('footer')
+@include('footer.footer')

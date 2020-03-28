@@ -20,19 +20,22 @@ class TabulaScraper extends Command
      * @var string
      */
     protected $description = 'Command description';
+    protected $economy=[];
+    protected $news=[];
+    protected $politics=[];
     protected $months = [
-     "იანვარი" => 0,
-     "თებერვალი" => 1,
-     "მარტი" => 2,
-     "აპრილი" => 3,
-     "მაისი" => 4,
-     "ივნისი" => 5,
-     "ივლისი" => 6,
-     "აგვისტო" => 7,
-     "სექტემბერი" => 8,
-     "ოქტომბერი" => 9,
-     "ნოემბერი" => 10,
-     "დეკემბერი" => 11
+     "იანვარი" => 1,
+     "თებერვალი" => 2,
+     "მარტი" => 3,
+     "აპრილი" => 4,
+     "მაისი" => 5,
+     "ივნისი" => 6,
+     "ივლისი" => 7,
+     "აგვისტო" => 8,
+     "სექტემბერი" => 9,
+     "ოქტომბერი" => 10,
+     "ნოემბერი" => 11,
+     "დეკემბერი" => 12
     ];
 
     /**
@@ -54,17 +57,18 @@ class TabulaScraper extends Command
     public function handleEconomy()
     {
         $crawler = $this->client->request('GET', 'http://www.tabula.ge/ge/economy');
-        $crawler->filter('.newscard')->each(function($node){
+        $newscard = $crawler->filter('.newscard');
+        $newscard->each(function($node){
             $arr = [];
-          if($node->filter('img')->count()){
-              $arr['image'] = $node->filter('img')->attr('src');
+        $img = $node->filter('img');
+          if($img->count()){
+              $arr['img'] = $img->attr('src');
           };
-          if($node->filter('.title')->count()){
-              $arr['title'] = $node->filter('.title')->text();
-          };
+        $title = $node->filter('.title');
+          if($title->count()){
+              $arr['title'] = $title->text();
+        };
           $link = $node->filter('a')->link()->getURI(); 
-          $bodyCrawler = $this->client->request('GET', $link);
-          $arr['body'] = $bodyCrawler->filter('.content-body-column')->html();
           $arr['link'] = $link;     
           $date = explode(" ",$node->filter('.meta time')->text()); 
           $year = substr($date[2],0,-1);
@@ -73,8 +77,60 @@ class TabulaScraper extends Command
           $hour = $date[3];
           $dateString=date_create("$year-$month-$day $hour");
           $arr['date'] = date_format($dateString, "Y/m/d H:i");
-          $this->blocks[] = $arr;
+          $this->economy[] = $arr;
       });
-         return $this->blocks;
+         return $this->economy;
+    }
+    public function handleNews(){
+        $crawler = $this->client->request('GET', 'http://www.tabula.ge/ge/world');
+        $newscard = $crawler->filter('.newscard');
+        $newscard->each(function($node){
+            $arr = [];
+        $img = $node->filter('img');
+          if($img->count()){
+              $arr['img'] = $img->attr('src');
+          };
+        $title = $node->filter('.title');
+          if($title->count()){
+              $arr['title'] = $title->text();
+        };
+          $link = $node->filter('a')->link()->getURI(); 
+          $arr['link'] = $link;     
+          $date = explode(" ",$node->filter('.meta time')->text()); 
+          $year = substr($date[2],0,-1);
+          $month = $this->months[$date[1]];
+          $day = $date[0];
+          $hour = $date[3];
+          $dateString=date_create("$year-$month-$day $hour");
+          $arr['date'] = date_format($dateString, "Y/m/d H:i");
+          $this->news[] = $arr;
+      });
+         return $this->news;   
+    }
+    public function handlePolitics(){
+        $crawler = $this->client->request('GET', 'http://www.tabula.ge/ge/politics');
+        $newscard = $crawler->filter('.newscard');
+        $newscard->each(function($node){
+            $arr = [];
+        $img = $node->filter('img');
+          if($img->count()){
+              $arr['img'] = $img->attr('src');
+          };
+        $title = $node->filter('.title');
+          if($title->count()){
+              $arr['title'] = $title->text();
+        };
+          $link = $node->filter('a')->link()->getURI(); 
+          $arr['link'] = $link;     
+          $date = explode(" ",$node->filter('.meta time')->text()); 
+          $year = substr($date[2],0,-1);
+          $month = $this->months[$date[1]];
+          $day = $date[0];
+          $hour = $date[3];
+          $dateString=date_create("$year-$month-$day $hour");
+          $arr['date'] = date_format($dateString, "Y/m/d H:i");
+          $this->politics[] = $arr;
+      });
+         return $this->politics;  
     }
 }
